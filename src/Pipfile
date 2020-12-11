@@ -3,8 +3,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[scripts]
+start = "python main.py"
+
 [packages]
 python-telegram-bot = "*"
+peewee = "*"
+peewee-migrations = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

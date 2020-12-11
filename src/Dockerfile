@@ -1,8 +1,9 @@
-FROM python:3.8
+FROM python:3.9
 
 COPY . /usr/local/src/app
 WORKDIR /usr/local/src/app
 
-RUN pip install pipenv
+RUN pip install pipenv && \
+    pipenv install
 
-CMD ["python", "main.py"]
+CMD ["pipenv", "run", "start"]
