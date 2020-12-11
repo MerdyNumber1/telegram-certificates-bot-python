@@ -5,6 +5,7 @@ name = "pypi"
 
 [scripts]
 start = "python main.py"
+migrate = "pem migrate"
 
 [packages]
 python-telegram-bot = "*"
