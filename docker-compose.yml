@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  bot:
+    build: ./src
+    env_file:
+      - .env
+    volumes:
+      - ./src/:/usr/local/src/app
+  postgres:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ./containers/postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_PORT}:5432
