@@ -2,6 +2,7 @@ import datetime
 
 from models.Base import BaseModel
 from peewee import DateTimeField, CharField
+import datetime
 
 
 class Certificate(BaseModel):
@@ -16,4 +17,4 @@ class Certificate(BaseModel):
         return f"Number: {self.id}, \n" \
                f"Title: {self.title}, \n" \
                f"Recipient name: {self.recipient}, \n" \
-               f"Expiration date: {self.expiration_at}. \n"
+               f"Expiration date: {self.expiration_at.ctime() if isinstance(self.expiration_at, datetime.date) else None}"

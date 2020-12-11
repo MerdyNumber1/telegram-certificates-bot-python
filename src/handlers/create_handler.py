@@ -16,14 +16,9 @@ def create_handler(update, context):
         if context.args[2].isdigit():
             days_to_expire = int(context.args[2])
 
-        expiration_at = None
-
-        if days_to_expire:
-            expiration_at = datetime.datetime.now() + datetime.timedelta(days=days_to_expire)
-
         certificate = CertificateService.create_certificate(title=title,
                                                             recipient_name=recipient,
-                                                            expiration_at=expiration_at)
+                                                            days_to_expire=days_to_expire)
 
         message = f"Certificate created: \n{repr(certificate)}"
 
